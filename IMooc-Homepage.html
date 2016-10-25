@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>慕课网首页Demo</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="http://demo.jb51.net/js/myfocus/content/templates/myfocus/js/myfocus-2.0.1.min.js"></script>
+    <script type="text/javascript">
+    myFocus.set({
+    id:'imgBox'
+    });
+</script>
+  <style>
+  *{
+padding: 0;
+margin: 0;
+font-family: "微软雅黑";
+}
+
+#header{
+background: url("http://img.mukewang.com/53edadad0001efe202000070.jpg") no-repeat 25px;
+height:60px;
+width:1000px;
+margin:0 auto;
+}
+#header ul{
+overflow: hidden;
+list-style-type: none;
+text-align: center;
+}
+#header ul li{
+display: inline-block;
+height: 60px;
+line-height: 60px;
+width: 4em;
+padding: 0 0.2em;
+margin: 0 0.5em;
+}
+#header ul li:hover,#header ul .active{
+background-color: #BD3847;
+}
+#main{
+width:1000px;
+margin:10px auto;
+}
+#imgBox{
+    height: 320px;
+    overflow: hidden;
+}
+.rollNews{
+    height: 40px;
+    width: 1000px;
+    margin:20px 0;
+    color:white;
+    font-size: 12px;
+}
+.rollNews h2{
+    float: left;
+    width:150px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #DB3847;
+    text-align: center;
+    font-weight: normal;
+}
+.rollNews div{
+    width: 850px;
+    height: 40px;
+    float:left;
+    line-height: 40px;
+    background-color: #404040;
+    font-size: 20px;
+    font-weight: 100
+}
+.recommend{
+    overflow: hidden;
+    margin:20px 0;
+}
+.recommend div{
+    width: 330px;
+    float:left;
+    font-size: 0;
+}
+.recommend div:nth-child(2),.content>div:nth-child(2){
+    margin:0 5px;
+}
+.content{
+    overflow: hidden;
+}
+.content>div{
+    width: 330px;
+    float:left;
+    min-height: 300px;
+    _height:300px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    border:1px solid #EEE;
+}
+.recommend div h2{
+    
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 30px;
+    border:1px solid #EEE;
+}
+.content h2{
+    background-color: #DB3847;
+    color:white;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 300;
+    padding-left: 1.5em;
+}
+
+.content .news ul li{
+    list-style: none;
+    border-bottom: 1px solid #EEE;
+    padding: 5px 0;
+    flex-flow: hidden;
+}
+.content .news ul li div{
+    float:left;
+    background-color: #BD3847;
+    height: 48px;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 24px;
+    padding:6px 10px;
+    margin:10px 2px;
+}
+.content .news span{
+    font-size: 14px;
+    color:#666;
+}
+.content .news h3{
+    font-size: 14px;
+    height: 30px;
+    line-height: 20px;
+    text-align: center;
+}
+.content .hotactive{
+    text-align: center;
+}
+.content .hotactive img{
+    margin:20px 25px;
+    margin-bottom: 5px;
+    width: 280px;
+    height: 120px;
+}
+.content .hotactive ul{
+    list-style: none;
+    text-align: left;
+    padding-left: 25px;
+}
+.content .contact p{
+    margin:5px 0 15px 2px;
+    font-size: 16px;
+}
+#footer{
+    width: 1000px;
+    background-color: #EEE;
+    margin: 0 auto;
+    height: 60px;
+}
+#footer p{
+    padding-top: 30px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: center;
+
+}
+  </style>
+  </head>
+  
+  <body>
+    <div id="wrap">
+        <div id="header">
+            <ul>
+                <li class="active" >首页</li>
+                <li>产品特色</li>
+                <li>解决方案</li>
+                <li>产品价格</li>
+                <li>帮助中心</li>
+                <li>关于我们</li>
+            </ul>
+        </div>
+        <div id="main">
+            
+            <div id="imgBox">
+                <div class="loading">
+                <img src="http://img.mukewang.com/53edad8c000175cb00300029.jpg" alt="图片加载中">
+                </div>
+                <div class="pic">
+                <ul>
+                    <li><img src="http://img.mukewang.com/53edad3e0001afad10000318.jpg"></li>
+                    <li><img src="http://img.mukewang.com/53edad2c0001b61310000314.jpg"></li>
+                    <li><img src="http://img.mukewang.com/53edad1600019ae910000310.jpg"></li>
+                </ul>
+                </div>
+            </div>
+            <div class="rollNews">
+                <h2>滚动新闻</h2>
+                <div>
+                    <marquee>这是滚动新闻</marquee> 
+                </div>
+            </div>
+
+            <div class="recommend">
+                <div>
+                    <img src="http://img.mukewang.com/53edad54000119fb03300130.jpg">
+                    <h2>玩转Bootstrap</h2>
+                </div>
+                <div>
+                    <img src="http://img.mukewang.com/53edad690001260a03300130.jpg">
+                    <h2>企业网站案例</h2>
+                </div>
+                <div>
+                    <img src="http://img.mukewang.com/53edad7a0001cde803300130.jpg">
+                    <h2>JavaScript基础</h2>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="news">
+                    <h2>新闻中心</h2>
+                    <ul>
+                        <li><div>8月<br/>23日</div><h3>学习计划之“Android攻城狮初养成”</h3><span>想成为Android攻城狮？想开发一款专属App？没有任何基础的你，应该从何学起？</span></li>
+                        <li><div>8月<br/>23日</div><p><h3>学习计划之“Android攻城狮初养成”</h3><span>想成为Android攻城狮？想开发一款专属App？没有任何基础的你，应该从何学起？</span></p></li>
+                        <li><div>8月<br/>23日</div><p><h3>学习计划之“Android攻城狮初养成”</h3><span>想成为Android攻城狮？想开发一款专属App？没有任何基础的你，应该从何学起？</span></p></li>
+                    </ul>
+                </div>
+                <div class="hotactive">
+                    <h2>热门活动</h2>
+                    <div>
+                        <img src="http://img.mukewang.com/53edacdd0001b8e804820302.jpg">
+                        <ul>
+                            <li>慕课网2048游戏源码征集</li>
+                            <li>慕课网2048游戏源码征集</li>
+                            <li>慕课网2048游戏源码征集</li>
+                            <li>慕课网2048游戏源码征集</li>
+                            <li>慕课网2048游戏源码征集</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact">
+                    <h2>联系我们</h2>
+                    <p>
+                        讲师招募<br/>
+                        邹同学<br/>
+                        电话：18911888156<br/>
+                        QQ:576264119<br/>
+                        E-mail:daisy@imooc.com
+                    </p>
+                    <p>
+                        网站合作<br/>
+                        吕同学<br/>
+                        电话：13261771103<br/>
+                        QQ：1059809142<br/>
+                        E-mail：lvyang@imooc.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>
+                Copyright &copy; 2013 imooc.com All Rights Reserved 京ICP备 13046642号-2
+            </p>
+        </div>
+    </div>
+  </body>
+</html>
