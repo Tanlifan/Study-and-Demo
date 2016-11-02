@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>贪吃蛇</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#main{
+			width: 541px;
+			background-color: white;
+			padding-left: 1px;
+			padding-top: 1px;
+			margin: 30px auto;
+			overflow: hidden;
+		}
+		#main span{
+			display: block;
+			float: left;
+			width: 8px;
+			height: 8px;
+			margin-right: 1px;
+			margin-bottom: 1px;
+			background-color: silver;
+		}
+		#main .snake{
+			background-color: black;
+		}
+		#start{
+			display: block;
+			clear: both;
+			width: 50px;
+			margin: 30px auto;
+		}
+		#main .food{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+<div id="main">
+</div>
+<button id="start">开始</button>
+<script type="text/javascript">
+window.onload=function(){
+	initialize(document.getElementById("main"),60,30);
+	document.getElementById("start").onclick=function(){
+		snake(this);
+		this.disabled=true;
+
+	};
+};
+function initialize(div,w,h){
+		/*
+			初始化游戏界面
+		*/
+		var html="";      //初始化html语句
+		for(i=0;i<(w*h);i++){
+		html=html+"<span></span>\n";
+		}
+		div.innerHTML=html;
+		
+}
+function snake( btn ){
+
+	var i;   //循环计数器
+	var width=60,
+	    height=31;   //定义游戏范围高宽
+	var snakeArr=[],
+		snakeHead,
+		key=39;
+	var div=document.getElementById("main");
+	initialize(div,60,30);    //初始化
+	var spans=div.getElementsByTagName("span");
+		Len=spans.length;
+	var result=true;
+	var foodArr;
+	snakeArr.push( spans[Len/2] );
+	snakeArr.push( spans[Len/2+1] );
+	snakeArr.push( spans[Len/2+2] );
+	snakeHead= Len/2+2;
+	foodArr=food();
+	snakeArr[ snakeArr.length-1 ].className="snake";
+	snakeArr[ snakeArr.length-2 ].className="snake";
+	snakeArr[ snakeArr.length-3 ].className="snake";
+
+	var play=setInterval( start , 300 );
+	document.onkeydown=function(even){
+		var e = even || window.event || arguments.callee.caller.arguments[0];
+		if(e.keyCode===37&&key!==39&&key!==37){
+			key=37; 
+			clearTimeout(play);
+			play=setInterval( start , 300 );
+			start();
+		}  
+		if(e.keyCode===38&&key!==40&&key!==38){
+			key=38; 
+			clearTimeout(play);
+			play=setInterval( start , 300 );
+			start();
+		}  
+		if(e.keyCode===39&&key!==37&&key!==39){
+			key=39; 
+			clearTimeout(play);
+			play=setInterval( start , 300 );
+			start();
+		}  
+		if(e.keyCode===40&&key!==38&&key!==40){
+			key=40; 
+			clearTimeout(play);
+			play=setInterval( start , 300 );
+			start();
+		}  
+	};
+	function start(){
+		switch (key){
+			case 37 :
+					if(snakeHead%width>0){
+						snakeHead=snakeHead-1;
+						snakeArr.push( spans[snakeHead] );
+					} 
+					else{
+						result=false;
+					}
+					break;
+			case 38 : 
+					if(snakeHead/width>1){
+						snakeHead=snakeHead-width;
+						snakeArr.push( spans[snakeHead] );
+					}
+					else{
+						result=false;
+					}
+					break;
+			case 39 : 
+					if(snakeHead%width!==width-1){
+					snakeHead=snakeHead+1;
+					snakeArr.push( spans[snakeHead] );
+					}
+					else{
+						result=false;
+					}
+					break;
+			case 40 : 
+					if(snakeHead/width<height-2){
+					snakeHead=snakeHead+width;
+					snakeArr.push( spans[snakeHead] );
+					}
+					else{
+						result=false;
+					}
+					break;
+		}
+		for(i=0;i<snakeArr.length-2;i++){
+			if(snakeArr[i]===snakeArr[ snakeArr.length-1 ]){
+				clearTimeout(play);
+				result=false;
+			}
+		}
+		if(result&&snakeArr[ snakeArr.length-1 ]===foodArr){
+			snakeArr[ snakeArr.length-1 ].className="snake";
+			foodArr=food();
+			console.log(snakeArr.length);
+		}
+		else if(result){
+			snakeArr.shift().className="";
+			snakeArr[ snakeArr.length-1 ].className="snake";
+		}
+		else{
+			clearTimeout(play);
+			btn.disabled=false;
+			alert("你失败了!你吃到了"+(snakeArr.length-3)+"个食物！");
+		}
+		
+	}
+	function food(){
+		for(i=true;i;){
+			var index=Math.floor(Math.random()*(width*height));
+			if(snakeArr.indexOf( spans[index])===-1){
+				spans[index].className="food";
+				return spans[index];
+			}
+			else{
+				continue;
+			}
+		}
+		
+	}
+}
+</script>
+</body>
+</html>
